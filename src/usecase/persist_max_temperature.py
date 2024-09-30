@@ -1,8 +1,10 @@
+from src.validator.InputValidator import InputValidator
+
+
 class PersistMaxTemperature:
     def __init__(self):
-        pass
+        self.validator = InputValidator()
 
-    def validate(self, temperature: float, timestamp: str):
-        return isinstance(temperature, float) and isinstance(timestamp, str)
-
-    def persist(self):
+    def persist(self, timestamp: str, temperature: float):
+        self.validator.validate(timestamp, temperature)
+        return "Data Saved"
