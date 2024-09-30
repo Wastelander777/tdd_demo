@@ -6,5 +6,5 @@ class PersistMaxTemperature:
         self.validator = InputValidator()
 
     def persist(self, timestamp: str, temperature: float):
-        self.validator.validate(timestamp, temperature)
-        return "Data Saved"
+        if self.validator.validate(timestamp, temperature):
+            return "Data Saved"
